@@ -56,3 +56,19 @@ let totalHours = employee.shifts.reduce((accumulator, shift) => {
 }
 let Sara = calculateTotalHours('Sara');
 console.log(`Sara's Total Hours: ${Sara}`);
+
+//Create listAvailableEmployees function
+function listAvailableEmployees(day) {
+    let available = employees.filter(employee => 
+    !employee.shifts.some(shift => shift.day === day)
+     );
+    if (available.length === 0) {
+        console.log(`No employees are available on ${day}`)
+    } else {
+        available.forEach(employee => {
+            console.log(`${employee.name} is available on ${day}`);
+        });
+    }
+    }
+    console.log(`Available Employees:`);
+    listAvailableEmployees('Thursday');
