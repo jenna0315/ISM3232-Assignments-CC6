@@ -39,6 +39,20 @@ console.log(`Shift assigned: ${name} on ${day} for ${hours} hours`);
 console.log(`Test Name Error Response:`);
 assignShift('Ruby','Tuesday',6)
 console.log(`Test Scheduling Error Response:`);
-assignShift(`Sara`,`Tuesday`,6));
+assignShift(`Sara`,`Tuesday`,6);
 console.log(`Test Successful Scheduling:`);
 assignShift('Sara', 'Saturday', 6);
+
+//Create calculateTotalHours function
+function calculateTotalHours(name) {let employee = employees.find(employee => employee.name === name);
+    if(!employee){
+        console.log(`Error! Employee Name Not Found`)
+        return
+    };
+let totalHours = employee.shifts.reduce((accumulator, shift) => {
+        return accumulator + shift.hours},0);
+
+    return totalHours
+}
+let Sara = calculateTotalHours('Sara');
+console.log(`Sara's Total Hours: ${Sara}`);
